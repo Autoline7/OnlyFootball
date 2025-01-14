@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&display=swap');
+/* || Reset */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Bebas Neue, Arsenal SC;
+    letter-spacing: 0.1em;
+}
+
+/* || Global Styles */
+:root{
+    --primary: deeppink;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+button{
+    cursor: pointer;
+}
+
+/* Navigation */
+
+nav{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    background-image: url(assets/soccer-ball-gettyimages-sb10066898ab-001.jpg);
+    background-size: cover;
+    background-position: center;
+    color: var(--primary);
+}
+
+.nav__selection{
+    position: absolute;
+    top: 14vh;
+    right: 10vh;
+    padding: 10px;
+    outline: none;
+}
+
+.nav__title{
+    font-size: 50px;
+}
+
+.nav__description{
+    font-size: 16px;
+}
+
+.nav__search{
+    width: 400px;
+    position: relative;
+}
+
+.nav__input{
+    width: 100%;
+    padding: 15px;
+    border-radius: 999px;
+    font-size: 20px;
+    outline: none;
+    font-family: Arsenal SC;
+    border: 2px black solid;
+}
+
+.nav__input__button{
+    position: absolute;
+    top: 50%;
+    left: 88%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    border: none;
+    background-color: transparent;
+    transition: 200ms ease;
+}
+
+.nav__input__button:hover .nav__input__button__icon{
+    scale: 1.25;
+    opacity: .8;
+}
+
+/* || Search Result */
+
+.results__search{
+    margin: 25px;   
+}
+
+/* Icon & Info */
+
+.result{
+    width: 200px;
+    margin: 24px 8px;
+    border: 3px black solid;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    box-shadow: 0 8px 12px 0px rgb(5,5,5,0.45);
+    position: relative;
+    animation: none; 
+}
+
+.results__list{
+    background-color: palegoldenrod;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result__info__name{
+    font-size: 22px;
+    border-bottom: 2px solid black;
+    margin-top: 2px;
+}
+
+.result__image__wrapper{
+    width: 100%;
+    height: 210px;
+    max-height: 288px;
+    overflow: hidden;
+    border-bottom: 2px solid black;
+}
+
+.result__image{
+    width: 100%;
+    height: 100%;
+    max-height: 288px;
+    
+}
+
+.result__info__hover{
+    visibility:hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.result:hover .result__image{
+    scale: 1.04;
+} 
+.result:hover .result__info__hover{
+   visibility: visible;
+}
+.result:hover{
+    animation: rotateFor 1000ms forwards;
+}
+/* .result:not(:hover){
+    animation: rotateRev 1000ms forwards;
+} */
+
+@keyframes rotateFor {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(-180deg);
+    }
+}
+
+/* @keyframes rotateRev {
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  } */
+
+
+
+.result__info__hover__rank{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.result__info__hover__stats{
+    padding: 0 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.result__info__hover__stat{
+    word-spacing: 12px;
+}
+
+.result__info__hover__rank, .result__info__hover__game{
+    text-align: center;
+}
+
+.nextgame{
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+.spinner{
+    display: block;
+    font-size: 40px;
+    text-align: center;
+    animation:  loadingSpinner 1000ms infinite;
+}
+
+@keyframes loadingSpinner {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+    
+}
+
+
+
+
