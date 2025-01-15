@@ -17,6 +17,11 @@ html{
     overflow-x: hidden;
 }
 
+#results{
+    background-color: rgba(0, 0, 0, 0.763);
+    height: 100vh;
+}
+
 button{
     cursor: pointer;
 }
@@ -44,6 +49,7 @@ nav{
     right: 10vh;
     padding: 10px;
     outline: none;
+    font-size: 18px;
 }
 
 .nav__title{
@@ -86,9 +92,23 @@ nav{
 }
 
 /* || Search Result */
-
+.options{
+    display: flex;
+    justify-content: space-between;
+}
 .results__search{
     margin: 25px;   
+}
+
+.options__view{
+    background-color: black;
+    margin: 10px 30px;
+    height: 50px;
+    width: 100px;
+    border: 3px solid black;
+    outline: none;
+    border-radius: 4px;
+    color: white;
 }
 
 /* Icon & Info */
@@ -101,11 +121,12 @@ nav{
     padding-bottom: 20px;
     box-shadow: 0 8px 12px 0px rgb(5,5,5,0.45);
     position: relative;
-    animation: none; 
+    animation: none;
+    transition: 1s; 
 }
 
 .results__list{
-    background-color: palegoldenrod;
+    background-color: rgba(128, 128, 128,0.9);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -142,42 +163,34 @@ nav{
 .result__info__hover{
     visibility:hidden;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 0%;
+    left: 0%;
     width: 100%;
+    text-align: center;
 }
 
 .result:hover .result__image{
     scale: 1.04;
 } 
+
 .result:hover .result__info__hover{
    visibility: visible;
+   background-color: palegoldenrod;
+   height: 100%;
+   width: 100%;
+   transform: rotateY(180deg);
 }
 .result:hover{
-    animation: rotateFor 1000ms forwards;
-}
-/* .result:not(:hover){
-    animation: rotateRev 1000ms forwards;
-} */
-
-@keyframes rotateFor {
-    0%{
-        transform: rotateY(0deg);
-    }
-    100%{
-        transform: rotateY(-180deg);
-    }
+    transform: rotateY(180deg);
 }
 
-/* @keyframes rotateRev {
-    0% {
-      transform: rotateY(180deg);
-    }
-    100% {
-      transform: rotateY(0deg);
-    }
-  } */
+.result:hover .result__info__hover__rank{
+    transform: rotateY(180deg);
+}
+.result:hover .result__info__hover__country{
+    transform: rotateY(180deg);
+}
+
 
 
 
@@ -185,16 +198,24 @@ nav{
     position: absolute;
     bottom: 0%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);   
+}
+
+.result__info__hover__country{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);   
 }
 
 
 
 .result__info__hover__stats{
-    padding: 0 8px;
+    padding: 10px 8px;
     text-align: center;
     display: flex;
     flex-direction: column;
+    font-size: 20px;
 }
 
 .result__info__hover__stat{
@@ -215,6 +236,7 @@ nav{
     font-size: 40px;
     text-align: center;
     animation:  loadingSpinner 1000ms infinite;
+    margin-top: 50px;
 }
 
 @keyframes loadingSpinner {

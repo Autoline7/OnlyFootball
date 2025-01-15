@@ -13,26 +13,34 @@
         <h1 class="nav__title"><i class="fa-solid fa-trophy"></i> Only Football <i class="fa-solid fa-trophy"></i></h1>
         <p class="nav__description">Search and support your favorite team here at <i class="fa-solid fa-trophy"></i> Only Football <i class="fa-solid fa-trophy"></i></p>
         <div class="nav__search">
-            <input type="text" class="nav__input" placeholder="Search Team/Country"> 
-            <button class="nav__input__button"><i class="fa-solid fa-magnifying-glass nav__input__button__icon"></i></button>
+            <input onkeyup="renderClubsByName(event)" type="text" class="nav__input" placeholder="Search Team/Country"> 
+            <button onclick="searchBarClick()" class="nav__input__button"><i class="fa-solid fa-magnifying-glass nav__input__button__icon"></i></button>
         </div>
-        <select id="team-select" class="nav__selection">
+        <select id="team-select" class="nav__selection" onchange="renderClubs()">
+            <option value="39" class="nav__select__option">Premier League</option>
+            <option value="140" class="nav__select__option">La Liga</option>
+            <option value="78" class="nav__select__option">Bundesliga</option>
+            <option value="61" class="nav__select__option">Ligue 1</option>
+            <option value="262" class="nav__select__option">Liga Mx</option>
+            <option value="135" class="nav__select__option">Serie A</option>
             <option value="" class="nav__select__option">Select League</option>
-            <option value="prem" class="nav__select__option">Premier League</option>
-            <option value="la-liga" class="nav__select__option">La Liga</option>
-            <option value="bundes" class="nav__select__option">Bundesliga</option>
-            <option value="ligue-1" class="nav__select__option">Ligue 1</option>
-            <option value="liga-mx" class="nav__select__option">Liga Mx</option>
-            <option value="mls" class="nav__select__option">MLS</option>
-            <option value="seria-a" class="nav__select__option">Serie A</option>
         </select>
     </nav>
 
+    
     <main>
+        <div class="options">
+            <h3 class="results__search">Search Results for: <span class="searchInputHere"></span> </h3>
+            <select name="text" class="options__view" onchange="renderClubs()">
+                <option value="false">View Less</option>
+                <option value="true">View All</option>
+            </select>
+        </div>
+        
         <section id="results">
             <div class="container">
                 <div class="row">
-                    <h3 class="results__search">Search Results for: </h3>
+                    
                     <div class="results__list">
 
                         
