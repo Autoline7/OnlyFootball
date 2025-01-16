@@ -28,10 +28,11 @@ async function fetchTeam(clubName) {
 
 async function renderClubsByName(event) {
 
-    const clubList = document.body.querySelector(".results__list");
-    clubList.innerHTML = `<i class="fa-solid fa-spinner spinner"></i>`;
+    
     
     if(event.keyCode == 13){
+        const clubList = document.body.querySelector(".results__list");
+        clubList.innerHTML = `<i class="fa-solid fa-spinner spinner"></i>`;
         let value = document.querySelector(".nav__input").value;
         let data  = await fetchTeam(value);
         clubHTML(data);
